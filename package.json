@@ -3,23 +3,39 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "dev": "yarn run development",
+    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "yarn run development --watch",
+    "watch-poll": "yarn run watch --watch-poll",
+    "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --disable-host-check --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "prod": "yarn run production",
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --config=node_modules/laravel-mix/setup/webpack.config.js"
   },
   "engines": {
     "node": "18.x"
   },
   "dependencies": {
+    "bootstrap-vue": "^2.23.1",
+    "chart.js": "^4.4.0",
     "core-js": "^3.30.2",
-    "vue": "^3.3.4"
+    "vue": "^3.2.36",
+    "vue-chartjs": "^5.2.0",
+    "vue-loader": "^17.0.1",
+    "vue-template-compiler": "^2.0.0"
   },
   "devDependencies": {
+    "@babel/eslint-parser": "^7.21.8",
     "@vue/cli-plugin-babel": "~5.0.8",
     "@vue/cli-plugin-eslint": "~5.0.8",
-    "@vue/cli-service": "~5.0.8",
+    "@vue/cli-service": "^5.0.8",
     "@vue/compiler-sfc": "^3.3.4",
-    "@babel/eslint-parser": "^7.21.8",
+    "bootstrap": "^4.0.0-beta",
     "eslint": "^8.4.1",
-    "eslint-plugin-vue": "^9.14.0"
+    "eslint-plugin-vue": "^9.14.0",
+    "jquery": "^3.7.1",
+    "popper.js": "^1.16.1",
+    "webpack-cli": "^5.1.4"
   },
   "eslintConfig": {
     "root": true,
