@@ -27,19 +27,25 @@
         </div>
       </div>
     </div>
+
+    <div class="container">
+      <div class="row">
+        <LineChart :data="data" :options="options" />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import { Bar, Doughnut } from 'vue-chartjs'
-import { Chart as ChartJS, Title, ArcElement, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js'
+import { Bar, Doughnut, Line as LineChart } from 'vue-chartjs'
+import { Chart as ChartJS, Title, ArcElement, Tooltip, Legend, BarElement, CategoryScale, LinearScale, PointElement, LineElement } from 'chart.js'
 
-ChartJS.register(Title, ArcElement, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
+ChartJS.register(Title, ArcElement, Tooltip, Legend, BarElement, CategoryScale, LinearScale, PointElement, LineElement)
 
 
 export default {
   name: 'BarChart',
-  components: { Bar, Doughnut },
+  components: { Bar, Doughnut, LineChart },
   data() {
     return {
       chartData1: {
@@ -117,6 +123,22 @@ export default {
       },
 
       doughnutOptions: {
+        responsive: true,
+        maintainAspectRatio: false
+      },
+
+      data : {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        datasets: [
+          {
+            label: 'Data One',
+            backgroundColor: '#f87979',
+            data: [40, 39, 10, 40, 39, 80, 40]
+          }
+        ]
+      },
+
+      options : {
         responsive: true,
         maintainAspectRatio: false
       }
